@@ -1,0 +1,7 @@
+#image::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+#image::before {
+  content: 'Select Image';
+}
