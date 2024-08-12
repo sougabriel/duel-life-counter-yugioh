@@ -1,0 +1,38 @@
+<ion-content class="ion-padding">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  @for (profile of selectedProfiles(); track profile.name) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ profile.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <img [src]="profile.avatar" width="64" />
+            <ion-label class="display">{{ profile.life }}</ion-label>
+            <app-life-counter [profile]="profile"></app-life-counter>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  <ion-list>
+    @for (profile of profiles(); track profile.name) {
+    <ion-item>
+      <ion-avatar aria-hidden="true" slot="start">
+        <img [src]="profile.avatar" />
+      </ion-avatar>
+      <ion-checkbox #check (click)="selectProfile(profile, check)">
+        <ion-label>{{ profile.name }}</ion-label>
+      </ion-checkbox>
+    </ion-item>
+    }
+  </ion-list>
+
+</ion-content>
+
