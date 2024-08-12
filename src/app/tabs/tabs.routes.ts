@@ -7,11 +7,8 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'single',
-        loadComponent: () =>
-          import('./single-duel/single-duel.page').then(
-            (m) => m.SingleDuelPage
-          ),
+        path: 'duel',
+        loadComponent: () => import('./duel/duel.page').then((m) => m.DuelPage),
       },
       {
         path: 'profiles',
@@ -20,14 +17,14 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/single',
+        redirectTo: '/tabs/duel',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/single',
+    redirectTo: '/tabs/duel',
     pathMatch: 'full',
   },
 ];
