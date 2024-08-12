@@ -1,0 +1,16 @@
+<ion-content class="ion-padding">
+  <ion-list>
+    @for (profile of profiles(); track profile.name) {
+    <ion-item>
+      <ion-avatar aria-hidden="true" slot="start">
+        <img [src]="profile.avatar" />
+      </ion-avatar>
+      <ion-label>{{ profile.name }}</ion-label>
+      <ion-button (click)="removeProfile(profile)" slot="end">
+        <ion-icon slot="icon-only" name="person-remove"></ion-icon>
+      </ion-button>
+    </ion-item>
+    }
+  </ion-list>
+  <app-add-profile />
+</ion-content>
