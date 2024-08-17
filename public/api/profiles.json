@@ -1,6 +1,18 @@
 [
   {
-    "name": "default",
-    "avatar": "millenial.png"
+    "name": "Dark",
+    "avatar": "images/profiles/dark.png"
+  },
+  {
+    "name": "Light",
+    "avatar": "images/profiles/light.png"
+  },
+  {
+    "name": "Millenial",
+    "avatar": "images/profiles/millenial.png"
+  },
+  {
+    "name": "TCG",
+    "avatar": "images/profiles/tcg.jpg"
   }
 ]
