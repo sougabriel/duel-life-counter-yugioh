@@ -70,7 +70,6 @@ export class DuelPage {
       this.selectedProfiles.set(newProfiles);
       checkbox.checked == false;
     } else {
-      profile.life = 8000;
       this.selectedProfiles().push(profile);
       checkbox.checked == true;
     }
