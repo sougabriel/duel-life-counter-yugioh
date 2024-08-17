@@ -29,4 +29,15 @@ export class CalculatorService {
   kill(profile: Profile) {
     return profile.life! = 0;
   }
+
+  reset(profile: Profile) {
+    return profile.life = 8000;
+  }
+
+  resetAll(profiles: Profile[]) {
+    for (let index = 0; index < profiles.length; index++) {
+      const profile = profiles[index];
+      profile.life = 8000;
+    }
+  }
 }
