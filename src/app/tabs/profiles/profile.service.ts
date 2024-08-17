@@ -19,18 +19,24 @@ export class ProfileService {
       .readDir('/images')
       .then((files) => {
         if (files.files.length > 0) {
-          files.files.forEach((file) => {
+          for (let index = 0; index < files.files.length; index++) {
+            const file = files.files[index];
             const name = file.name;
-            this.filesystem.getImage(file.name).then((x) => {
+            this.filesystem.getImage(file.name).then((result) => {
               const profile: Profile = {
                 name: name,
-                avatar: x.data as string,
+                avatar: result.data as string,
+                life: 8000,
               };
               this.addProfile(profile);
             });
-          });
+          }
         } else {
           this._getProfiles().subscribe((profiles) => {
+            for (let index: number = 0; index < profiles.length; index++) {
+              const profile = profiles[index];
+              profile.life = 8000;
+            }
             this.profiles$.next(profiles);
           });
         }
@@ -48,6 +54,7 @@ export class ProfileService {
 
   addProfile(profile: Profile) {
     const lastProfile = this.profiles$.value;
+    profile.life = 8000;
     this.profiles$.next([...lastProfile, profile]);
   }
 
