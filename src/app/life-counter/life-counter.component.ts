@@ -15,7 +15,7 @@ import {
 } from '@ionic/angular/standalone';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { addIcons } from 'ionicons';
-import { add, calculator, remove, skull, speedometer } from 'ionicons/icons';
+import { add, calculator, refresh, remove, skull, speedometer } from 'ionicons/icons';
 import { CalculatorService } from '../calculator.service';
 
 @Component({
@@ -40,20 +40,20 @@ import { CalculatorService } from '../calculator.service';
 export class LifeCounterComponent {
   protected readonly calc = inject(CalculatorService);
 
-  modal = viewChild<IonModal>('modal');
+  protected modal = viewChild<IonModal>('modal');
   profile = input.required<Profile>();
 
-  close() {
+  protected close() {
     this.modal()!.dismiss(this.profile, 'confirm');
   }
 
-  onWillDismiss(event: Event) {
+  protected onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
     }
   }
 
   constructor() {
-    addIcons({ add, remove, skull, speedometer, calculator });
+    addIcons({ add, remove, skull, speedometer, calculator, refresh });
   }
 }
