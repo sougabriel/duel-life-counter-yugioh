@@ -38,6 +38,6 @@ export class FilesystemService {
     await Filesystem.deleteFile({
       path: `images/${path}`,
       directory: Directory.Documents,
-    });
+    }).catch(() => {});
   }
 }
